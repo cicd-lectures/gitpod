@@ -1,0 +1,13 @@
+
+---
+# Multiple projects are expected, so we specify the "base directory" (e.g. "/workspace")
+workspaceLocation: "."
+# Custom Docker Image
+image:
+  file: .gitpod.Dockerfile
+vscode:
+  extensions:
+    - redhat.java
+    - shellcheck
+    - Pivotal.vscode-spring-boot
+...
