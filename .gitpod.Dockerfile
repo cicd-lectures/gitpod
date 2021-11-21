@@ -8,7 +8,12 @@ RUN apt-get update \
     curl \
     cowsay \
     fortune \
+    fortunes \
     shellcheck \
     sl \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
+
+# Allow "funny" commands to be used from default PATH
+RUN for cli in /usr/games/*;do ln -s "$cli" /usr/local/bin/;done
+RUN echo 'PATH=/usr/games:$PATH' >> /etc/environment
