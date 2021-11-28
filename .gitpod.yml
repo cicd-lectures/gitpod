@@ -10,4 +10,5 @@ vscode:
     - redhat.java
     - shellcheck
     - Pivotal.vscode-spring-boot
+    - vscjava.vscode-java-pack
 ...
