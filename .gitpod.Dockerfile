@@ -8,6 +8,7 @@ RUN apt-get update \
     fortune \
     fortunes \
     sl \
+  && curl https://cli-assets.heroku.com/install-ubuntu.sh | sh \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
