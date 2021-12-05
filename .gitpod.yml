@@ -3,8 +3,9 @@
 # Multiple projects are expected, so we specify the "base directory" (e.g. "/workspace")
 workspaceLocation: "."
 # Custom Docker Image
-image:
-  file: .gitpod.Dockerfile
+image: ghcr.io/cicd-lectures/gitpod:latest
+  ## Uncomment to build image from source
+  #file: .gitpod.Dockerfile
 vscode:
   extensions:
     - redhat.java
