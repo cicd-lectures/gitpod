@@ -16,4 +16,7 @@ RUN apt-get update \
 RUN for cli in /usr/games/*;do ln -s "$cli" /usr/local/bin/;done \
   && echo "PATH=/usr/games:\$PATH" >> /etc/environment
 
+# Use "main" as default branch for new git repositories
+RUN git config --system init.defaultBranch main
+
 USER gitpod
