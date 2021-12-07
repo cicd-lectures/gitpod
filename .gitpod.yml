@@ -9,6 +9,8 @@ image: ghcr.io/cicd-lectures/gitpod:latest
 tasks:
   - name: Use "main" as default branch for new git repositories
     before: git config --global init.defaultBranch main
+    # Clean up terminal after running tasks
+    command: clear
 vscode:
   extensions:
     - redhat.java
