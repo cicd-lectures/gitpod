@@ -13,8 +13,9 @@ tasks:
     command: clear
 vscode:
   extensions:
+    - lombok
+    - Pivotal.vscode-spring-boot
     - redhat.java
     - shellcheck
-    - Pivotal.vscode-spring-boot
     - vscjava.vscode-java-pack
 ...
