@@ -1,4 +1,3 @@
-
 ---
 # Multiple projects are expected, so we specify the "base directory" (e.g. "/workspace")
 workspaceLocation: "."
@@ -13,9 +12,9 @@ tasks:
     command: clear
 vscode:
   extensions:
-    - lombok
+    - gabrielbb.vscode-lombok
     - Pivotal.vscode-spring-boot
     - redhat.java
-    - shellcheck
+    - timonwong.shellcheck
     - vscjava.vscode-java-pack
 ...
