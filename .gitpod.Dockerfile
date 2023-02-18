@@ -9,7 +9,11 @@ RUN apt-get update \
     fortunes \
     sl \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  && bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh && \
+    sdk install java 17.0.6-zulu && \
+    sdk default java 17.0.6-zulu"
+
 
 ARG CLOUD_SDK_VERSION=403.0.0
 
