@@ -18,7 +18,7 @@ RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cl
   && tar xzf google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz \
   && rm google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz
 
-ENV PATH /google-cloud-sdk/bin:$PATH
+ENV PATH /home/gitpod/google-cloud-sdk/bin:$PATH
 
 # Allow "funny" commands to be used from default PATH
 RUN for cli in /usr/games/*;do ln -s "$cli" /usr/local/bin/;done \
