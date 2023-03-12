@@ -12,7 +12,10 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* \
   && bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh && \
     sdk install java 17.0.6-zulu && \
-    sdk default java 17.0.6-zulu"
+    sdk default java 17.0.6-zulu && \
+    sdk install maven 3.9.0 && \
+    sdk default maven 3.9.0 && \
+    "
 
 
 ARG CLOUD_SDK_VERSION=403.0.0
