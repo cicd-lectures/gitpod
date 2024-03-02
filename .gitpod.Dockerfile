@@ -1,6 +1,12 @@
 FROM gitpod/workspace-full
 
 USER root
+
+# Configure go
+ENV GO_VERSION=1.22.0
+ENV GOROOT=$HOME/go
+ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
 # hadolint ignore=DL3008
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -10,22 +16,9 @@ RUN apt-get update \
     sl \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
-  && bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh && \
-    sdk install java 17.0.6-zulu && \
-    sdk default java 17.0.6-zulu && \
-    sdk install maven 3.9.0 && \
-    sdk default maven 3.9.0 && \
-    "
-
-
-ARG CLOUD_SDK_VERSION=403.0.0
-
-# Install the gcloud sdk.
-RUN curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz \
-  && tar xzf google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz \
-  && rm google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz
-
-ENV PATH /home/gitpod/google-cloud-sdk/bin:$PATH
+  && curl -fsSL https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz | tar xzs \
+  && printf '%s\n' 'export GOPATH=/workspace/go' \
+     'export PATH=$GOPATH/bin:$PATH' > $HOME/.bashrc.d/300-go
 
 # Allow "funny" commands to be used from default PATH
 RUN for cli in /usr/games/*;do ln -s "$cli" /usr/local/bin/;done \

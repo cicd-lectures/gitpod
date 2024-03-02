@@ -12,9 +12,5 @@ tasks:
     command: clear
 vscode:
   extensions:
-    - gabrielbb.vscode-lombok
-    - Pivotal.vscode-spring-boot
-    - redhat.java
-    - timonwong.shellcheck
-    - vscjava.vscode-java-pack
+    - golang.go
 ...
