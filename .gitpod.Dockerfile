@@ -6,7 +6,6 @@ USER root
 ENV GO_VERSION=1.22.0
 ENV GOROOT=$HOME/go
 ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-ENV CGO_ENABLED=0
 
 # hadolint ignore=DL3008
 RUN apt-get update \
@@ -19,7 +18,8 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* \
   && curl -fsSL https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz | tar xzs \
   && printf '%s\n' 'export GOPATH=/workspace/go' \
-     'export PATH=$GOPATH/bin:$PATH' > $HOME/.bashrc.d/300-go
+     'export PATH=$GOPATH/bin:$PATH' \
+     'export CGO_ENABLED=0' > $HOME/.bashrc.d/300-go
 
 # Allow "funny" commands to be used from default PATH
 RUN for cli in /usr/games/*;do ln -s "$cli" /usr/local/bin/;done \
