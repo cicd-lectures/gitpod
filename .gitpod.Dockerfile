@@ -6,6 +6,7 @@ USER root
 ENV GO_VERSION=1.22.0
 ENV GOROOT=$HOME/go
 ENV PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+ENV CGO_ENABLED=0
 
 # hadolint ignore=DL3008
 RUN apt-get update \
