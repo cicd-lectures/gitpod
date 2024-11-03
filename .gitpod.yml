@@ -10,7 +10,4 @@ tasks:
     before: git config --global init.defaultBranch main
     # Clean up terminal after running tasks
     command: clear
-vscode:
-  extensions:
-    - golang.go
 ...
